@@ -9,6 +9,6 @@ class RestHTTPRequestHandler(BaseHTTPRequestHandler):
         # optional: print a snippet of the request header to console
         print str(self.headers).replace('\r\n', ' ')[:120]; stdout.flush()
  
-httpd = HTTPServer(('0.0.0.0', 8000), RestHTTPRequestHandler)
+httpd = HTTPServer(('', 8000), RestHTTPRequestHandler)
 while True:
     httpd.handle_request()
