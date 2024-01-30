@@ -1,9 +1,14 @@
-import http.server
-import socketserver
-
-PORT = 8000
-Handler = http.server.SimpleHTTPRequestHandler
-
-with socketserver.TCPServer(("", PORT), Handler) as httpd:
-    print("Hello World!")
-    httpd.serve_forever()
+from BaseHTTPServer import HTTPServer, BaseHTTPRequestHandler
+from sys import stdout
+ 
+class RestHTTPRequestHandler(BaseHTTPRequestHandler):
+    def do_GET(self):
+        self.send_response(200)
+        self.end_headers()
+        self.wfile.write('Hello World!')
+        # optional: print a snippet of the request header to console
+        print str(self.headers).replace('\r\n', ' ')[:120]; stdout.flush()
+ 
+httpd = HTTPServer(('0.0.0.0', 8000), RestHTTPRequestHandler)
+while True:
+    httpd.handle_request()
