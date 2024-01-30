@@ -1,1 +1,9 @@
-print('Hello World!')
+import http.server
+import socketserver
+
+PORT = 8000
+Handler = http.server.SimpleHTTPRequestHandler
+
+with socketserver.TCPServer(("", PORT), Handler) as httpd:
+    print("Hello World!")
+    httpd.serve_forever()
