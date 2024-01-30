@@ -1,14 +1,14 @@
-from BaseHTTPServer import HTTPServer, BaseHTTPRequestHandler
-from sys import stdout
- 
-class RestHTTPRequestHandler(BaseHTTPRequestHandler):
+import http.server
+import socketserver
+from http import HTTPStatus
+
+
+class Handler(http.server.SimpleHTTPRequestHandler):
     def do_GET(self):
-        self.send_response(200)
+        self.send_response(HTTPStatus.OK)
         self.end_headers()
-        self.wfile.write('Hello World!')
-        # optional: print a snippet of the request header to console
-        print str(self.headers).replace('\r\n', ' ')[:120]; stdout.flush()
- 
-httpd = HTTPServer(('', 8000), RestHTTPRequestHandler)
-while True:
-    httpd.handle_request()
+        self.wfile.write(b'Hello world')
+
+
+httpd = socketserver.TCPServer(('', 8000), Handler)
+httpd.serve_forever()
