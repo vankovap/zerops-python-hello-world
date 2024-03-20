@@ -8,6 +8,7 @@ PORT=8000
 
 class Handler(http.server.SimpleHTTPRequestHandler):
     def do_GET(self):
+        print('print')
         logger.info('Started')
         logger.warning('Finished')
         self.send_response(HTTPStatus.OK)
