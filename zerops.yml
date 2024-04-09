@@ -3,5 +3,7 @@ zerops:
     build:
       base: [ python@3.11 ]
       deploy: [ hello.py ]
+    prepareCommands: 
+      - pip install flask
     run:
       start: python3 hello.py
