@@ -3,10 +3,10 @@ zerops:
     build:
       base: python@3.12
       deploy:
-        - python/~main.py
+        - app/~main.py
       addToRunPrepare:
-        - python/requirements.txt
+        - app/requirements.txt
     run:
       prepareCommands:
-        - python3 -m pip install --ignore-installed -r python/requirements.txt
+        - python3 -m pip install --ignore-installed -r app/requirements.txt
       start: python3 hello.py
