@@ -1,18 +1,13 @@
-import http.server
-import socketserver
-from http import HTTPStatus
-import logging
-logger = logging.getLogger(__name__)
+from flask import Flask
 
 PORT=8000
 
-class Handler(http.server.SimpleHTTPRequestHandler):
-    def do_GET(self):
-        print('print')
-        logger.info('Started')
-        self.send_response(HTTPStatus.OK)
-        self.end_headers()
-        self.wfile.write(b'Hello World')
+app = Flask(__name__)
 
-with socketserver.TCPServer(('', PORT), Handler) as httpd:
-    httpd.serve_forever()
+@app.route('/')
+@app.route('/hello-world')
+def hello():
+   return "Hello World!"
+
+if __name__ == '__main__':
+   app.run('', PORT)
