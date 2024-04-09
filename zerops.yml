@@ -1,9 +1,12 @@
 zerops:
   - setup: python0
     build:
-      base: [ python@3.11 ]
-      deploy: [ hello.py ]
-    prepareCommands: 
-      - pip install flask
+      base: python@3.12
+      deploy:
+        - python/~main.py
+      addToRunPrepare:
+        - python/requirements.txt
     run:
-      start: export FLASK_APP=hello.py && python3 -m flask run -p 8000 -h 0.0.0.0
+      prepareCommands:
+        - python3 -m pip install --ignore-installed -r python/requirements.txt
+      start: python3 hello.py
