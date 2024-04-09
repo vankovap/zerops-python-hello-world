@@ -3,7 +3,7 @@ zerops:
     build:
       base: python@3.12
       deploy:
-        - app/~main.py
+        - app/~hello.py
       addToRunPrepare:
         - app/requirements.txt
     run:
