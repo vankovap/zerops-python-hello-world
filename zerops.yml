@@ -6,4 +6,4 @@ zerops:
     prepareCommands: 
       - pip install flask
     run:
-      start: export FLASK_APP=hello.py && python3 -m flask run -p 8000 -h ''
+      start: export FLASK_APP=hello.py && python3 -m flask run -p 8000 -h 0.0.0.0
