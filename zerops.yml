@@ -6,7 +6,11 @@ zerops:
         - app/~hello.py
       addToRunPrepare:
         - app/requirements.txt
+      envVariables:
+        key1: value1
     run:
       prepareCommands:
         - python3 -m pip install --ignore-installed -r app/requirements.txt
       start: python3 hello.py
+      envVariables:
+        key2: value2
