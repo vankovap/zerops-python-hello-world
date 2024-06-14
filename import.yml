@@ -3,6 +3,8 @@ services:
   type: python@3
   minContainers: 1
   maxContainers: 3
+  envSecrets:
+    SECRET: MGD5SZikS_2Y6ZY25KPt2k
   ports:
   - port: 8000
     httpSupport: true
