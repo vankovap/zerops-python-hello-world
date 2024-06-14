@@ -1,7 +1,7 @@
 zerops:
   - setup: helloworld
     build:
-      base: python@3.11
+      base: python@latest
       deploy:
         - app/~hello.py
       addToRunPrepare:
