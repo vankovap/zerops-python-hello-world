@@ -8,6 +8,7 @@ zerops:
         - app/requirements.txt
       envVariables:
         key1: value1
+        key2: secret
     run:
       prepareCommands:
         - python3 -m pip install --ignore-installed -r app/requirements.txt
