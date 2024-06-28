@@ -13,5 +13,3 @@ zerops:
       prepareCommands:
         - python3 -m pip install --ignore-installed -r app/requirements.txt
       start: python3 hello.py
-      envVariables:
-        key3: value
